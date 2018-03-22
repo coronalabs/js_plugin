@@ -18,7 +18,7 @@ else
 	local CoronaLibrary = require "CoronaLibrary"
 
 	-- Create stub library for simulator
-	lib = CoronaLibrary:new{ name='myplugin', publisherId='com.my' }
+	lib = CoronaLibrary:new{ name='myplugin', publisherId='com.mydomainname' }
 
 	-- Default implementations
 	local function defaultFunction()

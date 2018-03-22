@@ -52,3 +52,4 @@ myplugin.addEventListener(pluginListener)
 widget.newButton { onRelease = setData, left=60, top=60, width=200, height=50, defaultFile = "buttonRed.png", overFile = "buttonRedOver.png", label = "Save Data in JS", emboss = true,labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } } }
 widget.newButton { onRelease = getData, left=60, top=120, width=200, height=50, defaultFile = "buttonRed.png", overFile = "buttonRedOver.png", label = "Read Saved Data", emboss = true, labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } } }
 
+--
