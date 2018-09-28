@@ -1,4 +1,4 @@
--- 
+--
 -- main.lua
 -- Copyright (c) 2018 Corona Labs Inc. All rights reserved.
 --
@@ -22,34 +22,33 @@ local function pluginListener( event )
 end
 
 local setData = function()
-	-- call JS native plugin
-	-- arg value maybe boolean, number, string, table
-	-- 
-	local bool_arg = true
-	local number_arg = 123
-	local string_arg = 'abc'
-	local table_arg = {key1='key1value', key2={1,2,3}}
-	local array_arg = {1,2,3,4,5,6,7}
-	myplugin.set(bool_arg, number_arg, string_arg, table_arg, array_arg)
+    -- call JS native plugin
+    -- arg value maybe boolean, number, string, table
+    --
+    local bool_arg = true
+    local number_arg = 123
+    local string_arg = 'abc'
+    local table_arg = {key1='key1value', key2={1,2,3}}
+    local array_arg = {1,2,3,4,5,6,7}
+    myplugin.set(bool_arg, number_arg, string_arg, table_arg, array_arg)
 end
 
 local getData = function()
-	-- call JS native plugin
-	local tbl = myplugin.get()
-	if tbl then
-	    local str = json.prettify(tbl)
+    -- call JS native plugin
+    local tbl = myplugin.get()
+    if tbl then
+        local str = json.prettify(tbl)
 
 -- Important: use index-debug.html if you want to see print output
-		print('Data: ', str)
+        print('Data: ', str)
 
-		data.text = str
-	end
+        data.text = str
+    end
 end
 
--- event listener, it's an option
-myplugin.addEventListener(pluginListener)
+myplugin.init(pluginListener)
 
-widget.newButton { onRelease = setData, left=60, top=60, width=200, height=50, defaultFile = "buttonRed.png", overFile = "buttonRedOver.png", label = "Save Data in JS", emboss = true,labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } } }
-widget.newButton { onRelease = getData, left=60, top=120, width=200, height=50, defaultFile = "buttonRed.png", overFile = "buttonRedOver.png", label = "Read Saved Data", emboss = true, labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } } }
+widget.newButton { onRelease = setData, left=60, top=60, width=200, height=50, label = "Save Data in JS", labelColor = { default={ 1, 1, 1 }, over={ 0.6, 0.6, 0.6 } } }
+widget.newButton { onRelease = getData, left=60, top=120, width=200, height=50, label = "Read Saved Data", labelColor = { default={ 1, 1, 1 }, over={ 0.6, 0.6, 0.6 } } }
 
 --
